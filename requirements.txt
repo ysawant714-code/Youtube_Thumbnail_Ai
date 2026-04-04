@@ -1,0 +1,23 @@
+# requirements.txt
+# ── Core ─────────────────────────────────────────────────────────────────────
+streamlit>=1.32.0
+numpy>=1.24.0
+pandas>=2.0.0
+
+# ── Computer Vision ───────────────────────────────────────────────────────────
+opencv-python-headless>=4.9.0   # headless for server deployment
+Pillow>=10.0.0
+
+# ── Machine Learning ──────────────────────────────────────────────────────────
+scikit-learn>=1.4.0
+
+# ── Visualization ─────────────────────────────────────────────────────────────
+matplotlib>=3.8.0
+seaborn>=0.13.0
+
+# ── HTTP / API ────────────────────────────────────────────────────────────────
+requests>=2.31.0
+
+# ── Utilities ─────────────────────────────────────────────────────────────────
+python-dotenv>=1.0.0    # load .env files for API key management
+tqdm>=4.66.0            # progress bars for bulk downloads
