@@ -5,10 +5,12 @@ Main Streamlit Application Entry Point
 import sys
 import os
 
-# मूळ डिरेक्टरी आणि मॉड्युल्सचा पाथ सिस्टीममध्ये समाविष्ट करणे (Fix for Streamlit Cloud)
 current_dir = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(current_dir)
-sys.path.append(os.path.join(current_dir, "modules"))
+
+# 🔥 फक्त हा बदल करायचा आहे (याने Streamlit Cloud ला 'modules' फोल्डर सापडेल):
+modules_dir = os.path.join(current_dir, "modules")
+sys.path.append(modules_dir)
 
 
 import streamlit as st
@@ -17,7 +19,7 @@ import cv2
 from PIL import Image
 import io
 
-# ── आता तुमचे इम्पोर्ट्स Streamlit Cloud वर कोणत्याही एररशिवाय चालतील ──
+# तुमचे मूळ इम्पोर्ट्स (यात काहीही बदल करू नका):
 from modules.image_analyzer import ImageAnalyzer
 from modules.ml_model import TrendPredictor
 from modules.visualizer import Visualizer
