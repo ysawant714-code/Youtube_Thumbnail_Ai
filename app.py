@@ -429,7 +429,7 @@ elif page == "ℹ️ About":
     st.markdown("""
     ## Region-Based Analysis of YouTube Trending Videos using Thumbnails
 
-    **A Final Year Mini-Project in Computer Science**
+    **A Third Year Mini-Project in Computer Science**
 
     ### 🎯 Objectives
     - Analyze how thumbnail visual features influence YouTube trending behavior
