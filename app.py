@@ -2,17 +2,22 @@
 Region-Based Analysis of YouTube Trending Videos using Thumbnails
 Main Streamlit Application Entry Point
 """
+import sys
+import os
+
+# मूळ डिरेक्टरी आणि मॉड्युल्सचा पाथ सिस्टीममध्ये समाविष्ट करणे (Fix for Streamlit Cloud)
+current_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(current_dir)
+sys.path.append(os.path.join(current_dir, "modules"))
+
 
 import streamlit as st
 import numpy as np
 import cv2
 from PIL import Image
 import io
-import os
-import sys
 
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-
+# ── आता तुमचे इम्पोर्ट्स Streamlit Cloud वर कोणत्याही एररशिवाय चालतील ──
 from modules.image_analyzer import ImageAnalyzer
 from modules.ml_model import TrendPredictor
 from modules.visualizer import Visualizer
@@ -20,7 +25,6 @@ from modules.misleading_detector import MisleadingDetector
 from modules.region_analyzer import RegionAnalyzer
 from modules.youtube_collector import YouTubeCollector
 import config
-
 # ──────────────────────────────────────────────
 # Page Configuration
 # ──────────────────────────────────────────────
