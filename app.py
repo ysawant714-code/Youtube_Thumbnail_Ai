@@ -5,12 +5,10 @@ Main Streamlit Application Entry Point
 import sys
 import os
 
+# Streamlit Cloud आणि Local Environment दोन्हीसाठी पाथ सेट करणे
 current_dir = os.path.dirname(os.path.abspath(__file__))
-sys.path.append(current_dir)
-
-# 🔥 फक्त हा बदल करायचा आहे (याने Streamlit Cloud ला 'modules' फोल्डर सापडेल):
-modules_dir = os.path.join(current_dir, "modules")
-sys.path.append(modules_dir)
+if current_dir not in sys.path:
+    sys.path.append(current_dir)
 
 
 import streamlit as st
@@ -19,14 +17,23 @@ import cv2
 from PIL import Image
 import io
 
-# तुमचे मूळ इम्पोर्ट्स (यात काहीही बदल करू नका):
-from modules.image_analyzer import ImageAnalyzer
-from modules.ml_model import TrendPredictor
-from modules.visualizer import Visualizer
-from modules.misleading_detector import MisleadingDetector
-from modules.region_analyzer import RegionAnalyzer
-from modules.youtube_collector import YouTubeCollector
-import config
+# ── पाथ मॅनेजमेंट: दोन्ही पद्धतींनी इम्पोर्ट करून एरर फिक्स करणे ──
+try:
+    from modules.image_analyzer import ImageAnalyzer
+    from modules.ml_model import TrendPredictor
+    from modules.visualizer import Visualizer
+    from modules.misleading_detector import MisleadingDetector
+    from modules.region_analyzer import RegionAnalyzer
+    from modules.youtube_collector import YouTubeCollector
+    import config
+except ImportError:
+    from image_analyzer import ImageAnalyzer
+    from ml_model import TrendPredictor
+    from visualizer import Visualizer
+    from misleading_detector import MisleadingDetector
+    from region_analyzer import RegionAnalyzer
+    from youtube_collector import YouTubeCollector
+    import config
 # ──────────────────────────────────────────────
 # Page Configuration
 # ──────────────────────────────────────────────
